@@ -11,6 +11,7 @@ const viewsDirectoryPath = path.join(__dirname, '../templates/views') //this lin
 const partialsDirPath = path.join(__dirname, '../templates/partials') //for partials handlebars
 
 const app = express()  //express is a function and its returned value is stored in app
+const port = process.env.PORT || 3000 //**********for hosting on heroku
 
 // setup handlebars engine and views location
 app.set('view engine','hbs')  //for dynamic pages (hbs = handlebars)
@@ -105,6 +106,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
-    console.log("Server is started")
+app.listen(port, ()=>{
+    console.log("Server is started at " + port)
 })
